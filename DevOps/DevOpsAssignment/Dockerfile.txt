@@ -1,0 +1,12 @@
+FROM tomcat
+LABEL maintainer="akshansh.btech.ec17@iiitranchi.ac.in"
+LABEL author="akshansh"
+ENV role=app
+ENV env=dev
+ENV name=akshansh
+WORKDIR /usr/local/tomcat/webapps/
+RUN apt update -y
+RUN apt-get install net-tools telnet curl vim -y
+COPY SampleWebApp.war /usr/local/tomcat/webapps/
+VOLUME /usr/local/tomcat/webapps/
+EXPOSE 8080
